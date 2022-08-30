@@ -1,5 +1,7 @@
-function cargar(urlMenu){
-   
+function cargar_Registro(urlMenu){
+
+    document.getElementById('registro').setAttribute('class','nav-link active')
+
     $.ajax({
         type: "POST",
         url:urlMenu,

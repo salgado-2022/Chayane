@@ -38,7 +38,7 @@
     <div class="container">
         <ul class="nav nav-justified py-2 nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#" onclick="cargar('./pages/registro.php')" >Registro</a>
+                <a id="registro" class="nav-link" href="#" onclick="cargar_Registro('./pages/registro.php')" >Registro</a>
                 <li class="nav-item">
                 <a class="nav-link " href="#" >Ingreso</a>
             </li>           
