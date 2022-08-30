@@ -40,7 +40,7 @@
             <li class="nav-item">
                 <a id="registro" class="nav-link" href="#" onclick="cargar_Registro('./pages/registro.php')" >Registro</a>
                 <li class="nav-item">
-                <a class="nav-link " href="#" >Ingreso</a>
+                <a id="ingreso" class="nav-link " href="#" onclick="cargar_Ingreso('./pages/ingreso.php')" >Ingreso</a>
             </li>           
             
                 <li class="nav-item">
