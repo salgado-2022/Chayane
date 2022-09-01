@@ -14,17 +14,6 @@
     </div>
 
     <div class="form-group">
-    <label for="nombre">Apellido:</label>
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">
-          <i class="fas fa-user"></i>
-        </span>
-      </div>
-      <input type="text" class="form-control" id="apellido" name="txtApellido">
-    </div>
-
-    <div class="form-group">
       <label for="email">Correo electrónico:</label>
       <div class="input-group">
         <div class="input-group-prepend">

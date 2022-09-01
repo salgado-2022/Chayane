@@ -15,7 +15,7 @@ class PDODB
         $this->host = "localhost";
         $this->usuario = "root";
         $this->pass = "";
-        $this->db = "repaso"; //nombre de la base de datos 
+        $this->db = "amjor"; //nombre de la base de datos 
     }
  
     function connect() // Este método lo que hace es definir a la variable $opciones algunas 

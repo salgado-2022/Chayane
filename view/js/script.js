@@ -33,18 +33,18 @@ function cargar_Ingreso(urlMenu){
 function guardar(){
     $.ajax({
         type:"POST",
-        url: "",
+        url: "../Controller/control.php",
         data: {
-            'Nombre': $('#nombre').val(),
-            'Apellido': $('#apellido').val(),
-            'Email': $('#email').val(),
+            'nombre': $('#nombre').val(),
+            'email': $('#email').val(),
+            'pass': $('#password').val(),
             'metodo': "guardar"
         },
         success: function(data){
             alert(data);
             $('#nombre').val('');
-            $('#apellido').val('');
             $('#email').val('');
+            $('#password').val('');
         }
     });
 }
