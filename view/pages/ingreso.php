@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center text-center">
 
-<form class="p-5 bg-light" method="get" enctype="multipart/form-data">
+<form class="p-5 bg-light" method="POST" action="../Controller/ingreso.php">
 
     <div class="form-group">
       <label for="email">Correo electrónico:</label>
@@ -22,7 +22,7 @@
             <i class="fas fa-lock"></i>
           </span>
         </div>
-        <input type="password" class="form-control" id="pwd" name="txtPassword">
+        <input type="password" class="form-control" id="pass" name="txtPassword">
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
