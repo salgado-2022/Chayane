@@ -19,5 +19,14 @@ if($resultado != false){
        $_SESSION['email'] = $value['email'];
     }
     header("location: ../view/pages/inicio.php");
+}else{
+    echo "<script>
+            alert('Usuario o contraseña Incorrectos');
+            window.location= '../view/index.php'
+        </script>";
 }
 
+
+
+
+?>
