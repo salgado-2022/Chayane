@@ -48,3 +48,38 @@ function guardar(){
         }
     });
 }
+
+
+function GuardarAncheta(){
+    $.ajax({
+        type:"POST",
+        url: "../../Controller/control.php",
+        data: {
+            'ancheta': $('#NombreAncheta').val(),
+            'descripcion': $('#Descrip').val(),
+            'precio': $('#Precio').val(),
+            'metodo': "GuardarAncheta"
+        },
+        success: function(data){
+            alert(data);
+            $('#NombreAncheta').val('');
+            $('#Descrip').val('');
+            $('#Precio').val('');
+        }
+    });
+}
+
+function ListarProductos(){
+    $.ajax({
+        type: "POST",
+        url: "../../Controller/control.php",
+        data: {
+            'metodo': "listar"
+        },
+        datatype:"html",
+        success: function(data){
+            $('tbody').text("");
+            $('tbody').html(data);
+        }
+    });
+}

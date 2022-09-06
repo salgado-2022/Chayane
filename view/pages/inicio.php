@@ -1,3 +1,11 @@
+<?php 
+ session_start();   
+ if(!isset($_SESSION['nombre'])){
+  header("location: ../index.php");
+ }  
+ 
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
    <head>
@@ -19,8 +27,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    </head>
    <body>
-      <div class="container-fluid">
-         <h3 class="text-center py-3">LOGO</h3>
+      <div class="container-fluid text-center py-3">
+         <img src="logo.jpg" style="width: 100px;">
       </div>
 
       
@@ -29,9 +37,9 @@
          <div class="container">
             <ul class="nav nav-justified py-2 nav-pills">
                <li class="nav-item">
-                  <a id="registro" class="nav-link" href="#" onclick="cargar_Registro('./pages/registro.php')">Registrar Producto</a>
+                  <a id="registro" class="nav-link" href="#" onclick="cargar_Registro('productos.php')">Registrar Producto</a>
                <li class="nav-item">
-                  <a id="ingreso" class="nav-link " href="#" onclick="cargar_Ingreso('./pages/ingreso.php')">Lista de productos</a>
+                  <a id="ingreso" class="nav-link " href="#" onclick="cargar_Ingreso('lista.php')">Lista de productos</a>
                <li class="nav-item">
                   <a href="#" class="nav-link" data-toggle="modal" data-target="#cerrarSesion">Cerrar Sesion</a>
                </li>
@@ -43,6 +51,7 @@
          </div>
       </div>
       <div class="d-flex justify-content-center text-center" id="qCarga">
+      <h1>Bienvenido <?php echo($_SESSION['nombre']) ?></h1>
       </div>
 
 
