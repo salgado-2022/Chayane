@@ -42,14 +42,6 @@
                 <li class="nav-item">
                 <a id="ingreso" class="nav-link " href="#" onclick="cargar_Ingreso('./pages/ingreso.php')" >Ingreso</a>
             </li>           
-            
-                <li class="nav-item">
-                <a class="nav-link " href="#" >Inicio</a>
-            </li>  
-                <li class="nav-item">
-                <a class="nav-link" href="#" >Salir</a>
-            </li>
-   
         </ul>
     </div>
 </div>

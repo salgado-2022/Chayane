@@ -45,9 +45,8 @@
                 <li class="nav-item">
                 <a id="ingreso" class="nav-link " href="#" onclick="cargar_Ingreso('./pages/ingreso.php')" >Lista de productos</a>  
                 <li class="nav-item">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#cerrarSesion">cerrarSesion</a>
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#cerrarSesion">Cerrar Sesion</a>
             </li>
-   
         </ul>
     </div>
 </div>
@@ -82,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      <form action="../../controlador/close.php" method="post"><input type="submit" class="btn btn-primary" value="Cerrar sesión" ></form>
+      <form action="../../Controller/salir.php" method="post"><input type="submit" class="btn btn-primary" value="Cerrar sesión" ></form>
         
       </div>
     </div>

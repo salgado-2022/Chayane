@@ -7,7 +7,7 @@ $Contrasena = $_POST['txtPassword'];
 $conexion = new PDODB();
 $conexion->connect();
 
-$consultaSQL = "SELECT * FROM usuarios WHERE email ='".$CorreoLogin."' and password ='".$Contrasena."'";
+$consultaSQL = "SELECT * FROM usuarios WHERE email ='".$CorreoLogin."' and pass ='".$Contrasena."'";
  
 $resultado = $conexion->login($consultaSQL);
 

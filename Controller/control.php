@@ -24,7 +24,7 @@ function guardar(){
         $conexion->connect();
 
         $InstruccionSQL = "INSERT INTO usuarios  
-        (id, nombre, email, password)
+        (id, nombre, email, pass)
         VALUES
         (null,'".$nomCliente."', '".$email."','".$pass."')";
 
