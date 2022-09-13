@@ -20,6 +20,9 @@ switch ($metodo) {
     case 'modificar':
         Modificar();
         break;
+    case 'Eliminar':
+        Eliminar();
+        break;
 
 }
 
@@ -107,7 +110,7 @@ function ListarProductos(){
                     <td>'.$value['descripcion'].'</td>
                     <td>'.number_format($value['precio']).'</td>
                     <td><input type="button" value="Modificar" class="btn btn-warning" onclick="cargarModal('.$value['id'].');" ></td>
-                    <td><input type="button" value="Eliminar" class="btn btn-danger" onclick="eliminarProducto('.$value['id'].')"></td>
+                    <td><input type="button" value="Eliminar" class="btn btn-danger" onclick="EliminarAncheta('.$value['id'].')"></td>
                 </tr>';  
     }
     echo $tablaP;
@@ -176,6 +179,24 @@ function Modificar(){
     }else{
         echo "No fué posible modificar";
     }
+    }
+}
+
+
+function Eliminar(){
+    $id_Ancheta = $_POST['idancheta'];
+    $conexion = new PDODB();
+
+        $conexion->connect();
+
+        $InstruccionSQL = "DELETE FROM `anchetas` WHERE `anchetas`.`id` = ".$id_Ancheta."";
+
+        $resultado = $conexion->executeInstruction($InstruccionSQL);
+
+    if($resultado == true){
+        echo "Ancheta Eliminada Correctamente";
+    }else{
+        echo "No fué posible eliminar la ancheta";
     }
 }
 

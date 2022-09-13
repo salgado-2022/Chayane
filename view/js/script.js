@@ -120,3 +120,18 @@ function ModificarAnchetas(){
     });
     
 }
+
+function EliminarAncheta(id){
+    $.ajax({
+        type:"POST",
+        url: "../../Controller/control.php",
+        data: {
+            'idancheta': id,
+            'metodo': "Eliminar"
+        },
+        success: function(data){
+            alert(data);
+            ListarProductos();
+        }
+    });
+}
