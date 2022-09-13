@@ -83,3 +83,40 @@ function ListarProductos(){
         }
     });
 }
+
+function cargarModal(id){
+    $.ajax({
+        data: {
+            "idAncheta" : id,
+            'metodo' : "cargarModal"
+        },
+        url: "../../Controller/control.php",
+        type:"POST",
+        success: function(data){
+            $('#cuerpoModificar').text("");
+            $('#cuerpoModificar').append(data);
+            $("#modalMC").modal("show");
+        }
+    });
+}
+
+
+function ModificarAnchetas(){
+    $.ajax({
+        data: {
+            "id" : $('#idAnchetaM').val(),
+            "nombreAncheta" : $('#nombreA').val(),
+            "Descrip" : $('#descripcion').val(),
+            'PrecioM' : $('#PrecioM').val(),
+            'metodo' : "modificar"
+        },
+        url: "../../Controller/control.php",
+        type:"POST",
+        success: function(data){
+            alert(data);
+            ListarProductos();
+            $("#modalMC").modal("hide");
+        }
+    });
+    
+}

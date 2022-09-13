@@ -14,6 +14,13 @@ switch ($metodo) {
     case 'listar':
         ListarProductos();
         break;
+    case 'cargarModal':
+        CargarModal();
+        break;
+    case 'modificar':
+        Modificar();
+        break;
+
 }
 
 
@@ -99,8 +106,78 @@ function ListarProductos(){
                     <td>'.$value['nombreA'].'</td>
                     <td>'.$value['descripcion'].'</td>
                     <td>'.number_format($value['precio']).'</td>
+                    <td><input type="button" value="Modificar" class="btn btn-warning" onclick="cargarModal('.$value['id'].');" ></td>
                     <td><input type="button" value="Eliminar" class="btn btn-danger" onclick="eliminarProducto('.$value['id'].')"></td>
                 </tr>';  
     }
     echo $tablaP;
 }
+function CargarModal(){
+    
+    $conexion = new PDODB();
+
+    $conexion->connect();
+
+    $ID_Ancheta= $_POST['idAncheta'];
+
+    $consultaSQL = "SELECT * FROM anchetas WHERE id = ".$ID_Ancheta;
+
+    $ConsultaModal = $conexion->getData($consultaSQL);
+
+    $TablaModal = "";
+    foreach ($ConsultaModal as $key => $value) {
+            $TablaModal .= '<div class="col">
+            <div class="form-group row">
+            <div class="col">
+                <label for="nombres">Nombre Ancheta</label>
+                <input type="hidden" name="idAnchetaM" id="idAnchetaM" value="'.$value['id'].'">
+                <input type="text" name="nombreA" class="form-control" value="'.$value['nombreA'].'" id="nombreA" required>
+            </div>
+            <div class="col">
+                <label for="descripcion">Descripcion</label>
+                <textarea id="descripcion" name="descripcion" rows="4" cols="50">
+                '.$value['descripcion'].'
+                </textarea>
+            </div>
+            </div>
+            <div class="form-group row">
+            <div class="col">
+                <label for="precio">Precio</label>
+                <input type="number" name="PrecioM" class="form-control" value="'.$value['precio'].'" id="PrecioM" required>
+            </div>
+            </div>
+        </div>';  
+    }
+    echo $TablaModal;
+}
+
+function Modificar(){
+
+    $ID_Ancheta = $_POST['id'];
+    $NombreA = $_POST['nombreAncheta'];
+    $descripcion = $_POST['Descrip'];
+    $precio = $_POST['PrecioM'];
+    
+    if($NombreA == "" || $descripcion == "" || $precio == "" ){
+        echo "Llena todos los campos del formulario";
+    }else{
+
+    $conexion = new PDODB();
+
+    $conexion->connect();
+    
+    $consultaSQL = "UPDATE anchetas SET nombreA = '".$NombreA."', descripcion = '".$descripcion."', precio = '".$precio."' WHERE anchetas.id = ".$ID_Ancheta.";";
+
+    $modificado = $conexion->executeInstruction($consultaSQL);
+    
+    if($modificado){
+        echo "Modificado Correctamente";
+
+    }else{
+        echo "No fué posible modificar";
+    }
+    }
+}
+
+
+
